@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    write:
+      jdbc-url: jdbc:yugabytedb://127.0.0.2:5433/yugabyte?load-balance=true
+      driver-class-name: com.yugabyte.Driver
+      pool-name: mds-write
+      username: readwrite
+      password:
+      minimum-idle: 5
+      maximum-pool-size: 5
+      auto-commit: false
+      keepalive-time: 120000
+      connection-timeout: 5000
+      data-source-properties:
+        ApplicationName: mds-write
+        socketTimeout: 15
+        yb-servers-refresh-interval: 180
+      validation-timeout: 2000
+    read:
+      jdbc-url: jdbc:yugabytedb://127.0.0.2:5433/yugabyte?load-balance=true
+      driver-class-name: com.yugabyte.Driver
+      pool-name: mds-read
+      username: readonly
+      password:
+      minimum-idle: 5
+      maximum-pool-size: 5
+      auto-commit: false
+      keepalive-time: 120000
+      connection-timeout: 5000
+      data-source-properties:
+        ApplicationName: mds-read
+        socketTimeout: 15
+        yb-servers-refresh-interval: 180
+      validation-timeout: 2000
